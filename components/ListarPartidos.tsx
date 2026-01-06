@@ -83,21 +83,21 @@ return (
         <View style={styles.contenedor}>
             <Text style={styles.titulo}>Historial de Partidos</Text>
             <Pressable onPress={onClose} style={styles.botonCerrar}>
-                <Text>Cerrar</Text>
+                <Text style={{color:'white'}}>Cerrar</Text>
             </Pressable>
-
-        {cargando ? (<Text>Cargando partidos...</Text>) : partidos.length === 0 ? (<Text>No hay partidos guardados</Text>) : (
+            {/*bucle por cada partido que hay*/}
+            {cargando ? (<Text>Cargando partidos...</Text>) : partidos.length === 0 ? (<Text>No hay partidos guardados</Text>) : (
             <ScrollView>
                 {partidos.map((partido) => (
                     <View key={partido.id} style={styles.item}>
                     <Text>{partido.fecha} - {partido.nombreLocal} vs {partido.nombreVisitante}</Text>
-                    <Text>Resultado: {partido.setsLocal}-{partido.setsVisitante}</Text>
+                    <Text style={{color:'white'}}>Resultado: {partido.setsLocal}-{partido.setsVisitante}</Text>
                         <View style={styles.botones}>
                             <Pressable onPress={() => continuarPartido(partido)}>
-                                <Text>Continuar</Text>
+                                <Text style={{color:'white'}}>Continuar</Text>
                             </Pressable>
                             <Pressable onPress={() => eliminarPartido(partido.id)}>
-                                <Text>Eliminar</Text>
+                                <Text style={{color:'white'}}>Eliminar</Text>
                             </Pressable>
                         </View>
                     </View>

@@ -20,6 +20,8 @@ export default function App() {
   );
 
   const comprobarSet=()=>{
+
+    //puntos necesarios para un set
     let puntosParaGanar;
     if(setsLocal+setsVisitante===4){
       puntosParaGanar=15;
@@ -27,12 +29,13 @@ export default function App() {
       puntosParaGanar=25;
     }
     const diferenciaMinima = 2;
+    //local gana el set
     if(puntosLocal>=puntosParaGanar && puntosLocal-puntosVisitante>=diferenciaMinima){
       const nuevosSetsLocal = setsLocal+1
       setSetsLocal(nuevosSetsLocal)
       setPuntosLocal(0)
       setPuntosVisitante(0)
-
+      //local gana partido
       if(nuevosSetsLocal===3){
         Alert.alert('Victoria Equipo Local', 'El equipo local ha ganado el partido',[
           {text:'Guardar y Nuevo Partido', 
@@ -44,16 +47,21 @@ export default function App() {
         ]);
       }
     }
-
-  if (puntosVisitante >= puntosParaGanar && puntosVisitante - puntosLocal >= diferenciaMinima) {
+    //visitante gana el set
+    if (puntosVisitante >= puntosParaGanar && puntosVisitante - puntosLocal >= diferenciaMinima) {
       const nuevosSetsVisitante = setsVisitante+1
       setSetsVisitante(nuevosSetsVisitante)
       setPuntosLocal(0)
       setPuntosVisitante(0)
-
+      //visitante gana el partido
       if (nuevosSetsVisitante === 3) {
        Alert.alert('Victoria Equipo Visitante', 'El equipo visitante ha ganado el partido',[
-          {text:'Nuevo Partido', onPress: resetPartido}
+          {text:'Nuevo Partido',
+            onPress: async () =>{ 
+              await guardarPartido()
+              await resetPartido()
+            }
+          }
         ]);
       }
     }
@@ -94,7 +102,13 @@ export default function App() {
 
   const guardarPartido = async() => {
     try{
-      let ganador = '';
+
+      //evitar partidos sin puntos 
+      if (puntosLocal === 0 && puntosVisitante === 0 && setsLocal === 0 && setsVisitante === 0) {
+      Alert.alert('Partido vacío', 'No hay datos para guardar');
+      }
+
+      let ganador = 'en juego';
       if(setsLocal===3){
         ganador='local'
       }
@@ -114,7 +128,8 @@ export default function App() {
         hora: new Date().toLocaleTimeString(),
         ganador,
       };
-
+      
+      //create CRUD
       await fetch(API_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

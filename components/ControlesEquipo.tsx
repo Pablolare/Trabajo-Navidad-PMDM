@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text } from 'react-native'
+import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
 type ControlesEquipoProps = {
@@ -8,7 +8,7 @@ type ControlesEquipoProps = {
 
 export default function ControlesEquipo({ sumarPunto, restarPunto }: ControlesEquipoProps) {
   return (
-    <>
+    <View>
       <Pressable style={styles.boton} onPress={sumarPunto}>
         <Text style={styles.textoBoton}>+</Text>
       </Pressable>
@@ -16,7 +16,7 @@ export default function ControlesEquipo({ sumarPunto, restarPunto }: ControlesEq
       <Pressable style={styles.boton} onPress={restarPunto}>
         <Text style={styles.textoBoton}>-</Text>
       </Pressable>
-    </>
+    </View>
   )
 }
 
