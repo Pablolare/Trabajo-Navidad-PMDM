@@ -1,0 +1,38 @@
+{
+  "partidos": [
+    {
+      "id": "1",
+      "nombreLocal": "Equipo A",
+      "nombreVisitante": "Equipo B",
+      "puntosLocal": 25,
+      "puntosVisitante": 20,
+      "setsLocal": 2,
+      "setsVisitante": 1,
+      "fecha": "2025-01-04"
+    },
+    {
+      "id": "1767702008868",
+      "nombreLocal": "Equipo Local",
+      "nombreVisitante": "Equipo Visitante",
+      "puntosLocal": 14,
+      "puntosVisitante": 11,
+      "setsLocal": 0,
+      "setsVisitante": 1,
+      "fecha": "6/1/2026",
+      "hora": "13:20:08",
+      "ganador": ""
+    },
+    {
+      "id": "1767702124523",
+      "nombreLocal": "Equipo Local",
+      "nombreVisitante": "Equipo Visitante",
+      "puntosLocal": 6,
+      "puntosVisitante": 24,
+      "setsLocal": 0,
+      "setsVisitante": 0,
+      "fecha": "6/1/2026",
+      "hora": "13:22:04",
+      "ganador": ""
+    }
+  ]
+}
