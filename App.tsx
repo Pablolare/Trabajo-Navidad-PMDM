@@ -173,9 +173,8 @@ export default function App() {
         </Pressable>
 
         <ControlesEquipo sumarPunto={sumarPuntoVisitante} restarPunto={restarPuntoVisitante}/>
-
-        <ListarPartidos visible={modalHistorialVisible} onClose={() => setModalHistorialVisible(false)} apiUrl={API_URL} onCargarPartido={cargarPartidoGuardado}/>
       </View>
+      <ListarPartidos visible={modalHistorialVisible} onClose={() => setModalHistorialVisible(false)} apiUrl={API_URL} onCargarPartido={cargarPartidoGuardado}/>
     </View>
   )
 }
